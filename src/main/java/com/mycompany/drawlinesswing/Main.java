@@ -1,9 +1,9 @@
 package com.mycompany.drawlinesswing;
 
-public class DrawLinesSwing {
+public class Main {
 
     public static void main(String[] args) {
-        JMouseActionFrame mFrame = new JMouseActionFrame();
+        Frame mFrame = new Frame();
         final int WIDTH = 750;
         final int HEIGHT = 300;
         mFrame.setSize(WIDTH, HEIGHT);
