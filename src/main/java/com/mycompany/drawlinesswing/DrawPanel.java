@@ -14,13 +14,13 @@ class DrawPanel extends JPanel {
     Color currentColor;
     List<Line> lines;
     int pointSize = 10;
-    Glue glue;
+    Global global;
 
-    public DrawPanel(Glue glue) {
+    public DrawPanel(Global global) {
         lines = new ArrayList<>();
         lines.add(new Line());
         
-        this.glue =  glue;
+        this.global =  global;
     }
     
     private Line getCurrentLine() {

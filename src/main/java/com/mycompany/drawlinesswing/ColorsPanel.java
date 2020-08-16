@@ -27,13 +27,13 @@ public class ColorsPanel extends JPanel implements ActionListener {
         Color.decode("#6A4C93"),
     };
     
-    Glue glue;
+    Global global;
     
-    public ColorsPanel(Glue glue) {
+    public ColorsPanel(Global global) {
         
         super();
         
-        this.glue = glue;
+        this.global = global;
         
         setLayout(new GridLayout(3, 4));
         
@@ -50,6 +50,6 @@ public class ColorsPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         int colorIndex = Integer.valueOf(ae.getActionCommand());
-        glue.frame.changeColor(colors[colorIndex]);
+        global.frame.changeColor(colors[colorIndex]);
     }
 }

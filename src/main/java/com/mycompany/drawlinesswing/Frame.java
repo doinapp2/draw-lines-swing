@@ -13,11 +13,9 @@ import javax.swing.border.LineBorder;
 
 public class Frame extends JFrame implements MouseListener {
 
-    public static Font bigFont = new Font("Arial", Font.BOLD, 20);
-
     private ControlsPanel controls;
     private DrawPanel drawPanel;
-    private Glue glue;
+    private Global global;
 
     private final JLabel label = new JLabel("Do something with the mouse");
     String msg = "";
@@ -26,14 +24,14 @@ public class Frame extends JFrame implements MouseListener {
         setTitle("Mouse Actions");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        label.setFont(bigFont);
+        label.setFont(Global.bigFont);
 
         setLayout(new BorderLayout());
         addMouseListener(this);
 
-        glue = new Glue(this);
-        controls = new ControlsPanel(glue);
-        drawPanel = new DrawPanel(glue);
+        global = new Global(this);
+        controls = new ControlsPanel(global);
+        drawPanel = new DrawPanel(global);
 
         add(label, BorderLayout.NORTH);
         add(drawPanel, BorderLayout.CENTER);

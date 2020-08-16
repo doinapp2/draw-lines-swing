@@ -9,19 +9,20 @@ import javax.swing.JPanel;
 class ControlsPanel extends JPanel implements ActionListener {
     
     public ColorsPanel colorsPanel;
-    private Glue glue;
+    private Global global;
     
-    public ControlsPanel(Glue glue) {
+    public ControlsPanel(Global global) {
         super();
         
-        this.glue = glue;
+        this.global = global;
         
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         
-        colorsPanel = new ColorsPanel(glue);
+        colorsPanel = new ColorsPanel(global);
         
         Button clearButton = new Button("Clear");
         clearButton.addActionListener(this);
+        clearButton.setFont(Global.bigFont);
         
         add(colorsPanel);
         add(clearButton);
@@ -30,7 +31,7 @@ class ControlsPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        glue.frame.clearDrawing();
+        global.frame.clearDrawing();
     }
 
 }
