@@ -2,6 +2,7 @@ package com.mycompany.drawlinesswing;
 
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,6 +39,7 @@ public class ColorsPanel extends JPanel implements ActionListener {
         
         for (int i = 0; i < colors.length; i++) {
             Button b = new Button();
+            b.setPreferredSize(new Dimension(30, 30));
             b.addActionListener(this);
             b.setActionCommand(Integer.toString(i));
             b.setBackground(colors[i]);
