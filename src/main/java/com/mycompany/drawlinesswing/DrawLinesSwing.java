@@ -8,5 +8,6 @@ public class DrawLinesSwing {
         final int HEIGHT = 300;
         mFrame.setSize(WIDTH, HEIGHT);
         mFrame.setVisible(true);
+        mFrame.setTitle("Draw Lines with Swing");
     }
 }

@@ -1,10 +1,21 @@
 package com.mycompany.drawlinesswing;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BasicStroke;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.LineBorder;
+
 
 public class JMouseActionFrame extends JFrame implements MouseListener {
 
@@ -13,17 +24,6 @@ public class JMouseActionFrame extends JFrame implements MouseListener {
     private final DrawPanel panel = new DrawPanel();
     private final JLabel label = new JLabel("Do something with the mouse");
     String msg = "";
-
-    class Point {
-
-        int x, y;
-
-        public Point(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-    }
 
     class DrawPanel extends JPanel {
 
@@ -96,7 +96,13 @@ public class JMouseActionFrame extends JFrame implements MouseListener {
 
         msg += " You are at position "
                 + e.getX() + ", " + e.getY() + ".";
-        panel.points.add(new Point(e.getXOnScreen() - panel.getX() - getInsets().left, e.getYOnScreen() - panel.getY() - getInsets().top));
+        
+        SwingUtilities.convertPointFromScreen(e.getPoint(), panel);
+        
+        int pointX = e.getX() - getInsets().left;
+        int pointY = e.getY() - getInsets().top - panel.getY();
+        
+        panel.points.add(new Point(pointX, pointY));
         panel.repaint();
 
         if (e.getClickCount() == 2) {
