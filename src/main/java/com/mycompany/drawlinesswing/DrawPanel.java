@@ -59,7 +59,7 @@ class DrawPanel extends JPanel {
                 //g2d.fillRect(p.x - pointSize / 2, p.y - pointSize / 2, pointSize, pointSize);
                 
                 // circle point
-                g2d.fillOval(p.x - pointSize / 3, p.y - pointSize / 3, pointSize, pointSize);
+                g2d.fillOval(p.x - pointSize / 2, p.y - pointSize / 2, pointSize, pointSize);
             }
             
         }
